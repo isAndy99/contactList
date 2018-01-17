@@ -1,0 +1,25 @@
+{
+  "presets": [
+    "env",
+    "react",
+    "stage-1"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "react-hmre"
+      ]
+    },
+    "lib": {
+      "plugins": [
+        "transform-react-constant-elements",
+        "./babel-plugin-import-scss-to-css.js"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-react-constant-elements"
+      ]
+    }
+  }
+}

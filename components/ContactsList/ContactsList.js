@@ -17,8 +17,7 @@ class ContactList extends React.Component {
           surname: '',
           phone: '',
           email: '',
-          photo:
-            'https://t3.ftcdn.net/jpg/01/87/38/18/240_F_187381803_PkyqnKdHacpV4dXk6jaHGTvtdwqVCclS.jpg'
+          photo: 'https://t3.ftcdn.net/jpg/01/87/38/18/240_F_187381803_PkyqnKdHacpV4dXk6jaHGTvtdwqVCclS.jpg'
         }
       ]
     };
@@ -35,7 +34,7 @@ class ContactList extends React.Component {
         })
       )
       .catch(err => {
-        console.log(err);
+        alert(err);
       });
   }
 
@@ -48,8 +47,8 @@ class ContactList extends React.Component {
       <div className={theme.ContactList}>
         <ul>
           {this.state.persons.map((person, index) => (
-            <li>
-              <Contact contact={person} key={index} />
+            <li key={index}>
+              <Contact contact={person}  />
             </li>
           ))}
         </ul>
@@ -72,6 +71,10 @@ function Photo({ contact }) {
   );
 }
 
+Photo.propTypes = {
+  contact: PropTypes.object,
+};
+
 function ContactInfo(props) {
   return (
     <div className={theme.ContactInfo}>
@@ -82,6 +85,10 @@ function ContactInfo(props) {
   );
 }
 
+ContactInfo.propTypes = {
+  contact: PropTypes.object,
+};
+
 function Contact(props) {
   return (
     <div className={theme.Contact}>
@@ -90,5 +97,9 @@ function Contact(props) {
     </div>
   );
 }
+
+Contact.propTypes = {
+  contact: PropTypes.object,
+};
 
 export default ContactList;
