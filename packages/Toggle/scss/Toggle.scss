@@ -1,0 +1,345 @@
+// TODO: clean up
+
+
+.onoffswitch.switch { // TODO: convert this to ui button
+  .onoffswitchLabel:hover {
+    cursor: pointer;
+  }
+  .ui.form .field & {
+    .onoffswitchLabel {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//Enable-Disable toggle switch
+.onoffswitch {
+  width: 70px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onoffswitchCheckbox {
+  display: none;
+}
+
+.onoffswitchLabel {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 70px;
+  height: 25px;
+}
+
+.onoffswitchInner {
+  width: 200%;
+  margin-left: -100%;
+  outline: none;
+  -webkit-transition: margin 0.3s ease-in 0s;
+    -moz-transition: margin 0.3s ease-in 0s;
+      -o-transition: margin 0.3s ease-in 0s;
+       transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitchInner:before, .onoffswitchInner:after {
+  padding: 0;
+  width: 50%;
+  height: 25px;
+  float: left;
+  box-sizing: border-box;
+  border-radius: 15px;
+  line-height: 26px;
+  font-size: 13px;
+  font-weight: bold;
+}
+  .onoffswitchInner {
+    &::before {
+      content: "ON";
+      padding-left: 12px;
+      background-color: #7ec289;
+      color: #fff;
+    }
+    &::after {
+      content: "OFF";
+      padding-right: 11px;
+      background-color: #e1e1e1;
+      color: #7F7F86;
+      text-align: right;
+    }
+  }
+
+.ui .onoffswitchLabel {
+  width: 50px;
+  border-radius: 3px;
+}
+
+.visibility .onoffswitchInner::before,
+.visibility .onoffswitchInner::after {
+  content: '';
+}
+
+
+.ui .onoffswitchInner {
+  &::before, &::after {
+    background-color: #049FD9;
+    border-radius: 3px;
+    padding-left: 8px;
+    padding-right: 6px;
+    font-size: 10px;
+    line-height: 25px;
+    box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,.2);
+  }
+  &::after {
+    background-color: #d5d5d5;
+  }
+
+  @at-root .visibility#{&} {
+    &::before, &::after {
+      content: '';
+    }
+  }
+
+  @at-root .logic#{&} {
+      color: #7F7F86;
+      &::before {
+        content: 'YES';
+        padding-left: 6px;
+      }
+      &::after {
+        content: 'NO';
+        padding-right: 8px;
+      }
+      .ja &::before {
+        content: 'はい';
+        padding-left: 6px;
+      }
+      .ja &::after {
+        content: 'いいえ';
+        padding-right: 2px;
+      }
+      .fr &::before {
+        content: 'Oui';
+        padding-left: 6px;
+      }
+      .fr &::after {
+        content: 'Non';
+        padding-right: 8px;
+      }
+      .zh &::before {
+        content: '是';
+        padding-left: 6px;
+      }
+      .zh &::after {
+        content: '否';
+        padding-right: 8px;
+      }
+  }
+
+  :global(.glyphicons) {
+    display: none;
+    transition: all 0.3s ease-in 0s;
+    @at-root .visibility#{&} {
+      display: inline-block;
+    }
+  }
+  :global(.glyphicons-eye-open) {
+    opacity: 0;
+    color: #fff;
+    position: absolute;
+    left: 8px;
+    top: 6px;
+  }
+  :global(.glyphicons-eye-close) {
+    opacity: 1;
+    color: #7F7F86;
+    position: absolute;
+    right: 8px;
+    top: 6px;
+  }
+}
+
+.eyeOpened {
+    display: none;
+    transition: all 0.3s ease-in 0s;
+    @at-root .visibility#{&} {
+      display: inline-block;
+    }
+    opacity: 0;
+    color: #fff;
+    position: absolute;
+    left: 8px;
+    top: 6px;
+}
+
+.eyeClosed {
+  display: none;
+  transition: all 0.3s ease-in 0s;
+  @at-root .visibility#{&} {
+    display: inline-block;
+  }
+  opacity: 1;
+  color: #7F7F86;
+  position: absolute;
+  right: 8px;
+  top: 6px;
+}
+
+
+
+.ui .onoffswitchCheckbox:checked {
+  + .onoffswitchLabel {
+    .onoffswitchInner {
+      :global(.glyphicons-eye-open) {
+        opacity: 1;
+      }
+      :global(.glyphicons-eye-close) {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.ui .onoffswitchStatus {
+  text-align: center;
+  border-radius: 3px;
+  width: 17px;
+  background-color: #f6f6f6;
+  box-shadow: 0px 1px 0 rgba(0,0,0,0.2);
+  right: 27px;
+  margin: 3px 3px 4px 0;
+  &::before, &::after {
+    content: '';
+    color: #9E9EA2;
+    display: inline-block;
+    width: 2px;
+    height: 8px;
+    margin-top: 1px;
+    vertical-align: middle;
+    border-left: 1px solid #ccc;
+  }
+  &::after {
+    border-right: 1px solid #ccc;
+  }
+}
+.ui .onoffswitchLabel:hover .onoffswitchStatus {
+  background-color: #fff;
+}
+
+.onoffswitchStatus {
+  width: 14px;
+  margin: 5px;
+  background: #fff;
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  outline: none;
+  bottom: 0;
+  right: 45px;
+  box-shadow: 2px 2px 0 rgba(#000, 0.1);
+  -webkit-transition: all 0.3s ease-in 0s;
+    -moz-transition: all 0.3s ease-in 0s;
+      -o-transition: all 0.3s ease-in 0s;
+        transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitchCheckbox:checked + .onoffswitchLabel .onoffswitchInner {
+  margin-left: 0;
+}
+
+.onoffswitchCheckbox:checked + .onoffswitchLabel .onoffswitchStatus {
+  right: 0;
+}
+
+.onoffswitch.disabled .onoffswitchCheckbox:checked +.onoffswitchLabel .onoffswitchStatus {
+    background: #C6C7CA;
+}
+.onoffswitch.disabled .onoffswitchStatus {
+    background: #CCCCCC;
+}
+.onoffswitch.disabled {
+    opacity: 0.5;
+}
+
+.onoffswitch.switch { // TODO: convert this to ui button
+  .onoffswitchLabel:hover {
+    cursor: pointer;
+  }
+}
+
+label {
+  position: relative;
+  line-height: 14px;
+  font-weight: 300;
+  color: #000;
+
+  &.onoffswitchLabel {
+    padding: 0;
+  }
+}
+
+
+
+
+
+
+
+.zh {
+  .onoffswitchInner {
+    &::before {
+      content: "上";
+      padding-left: 12px;
+      background-color: #7ec289;
+      color: #fff;
+    }
+    &::after {
+      content: "关闭";
+      padding-right: 11px;
+      background-color: #e1e1e1;
+      color: #7F7F86;
+      text-align: right;
+    }
+  }
+}
+
+.fr {
+  .onoffswitchInner {
+    &::before {
+      content: "SUR";
+      padding-left: 12px;
+      background-color: #7ec289;
+      color: #fff;
+    }
+    &::after {
+      content: "DE";
+      padding-right: 11px;
+      background-color: #e1e1e1;
+      color: #7F7F86;
+      text-align: right;
+    }
+  }
+}
+
+.ja {
+  .onoffswitchInner {
+    &::before {
+      content: "に";
+      padding-left: 12px;
+      background-color: #7ec289;
+      color: #fff;
+    }
+    &::after {
+      content: "オフ";
+      padding-right: 11px;
+      background-color: #e1e1e1;
+      color: #7F7F86;
+      text-align: right;
+    }
+  }
+}
+
+

@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+ }
+
+ ul {
+   list-style-type: none;
+ }
+
+ /* Elements */
+
+ .ContactList {
+   margin: auto;
+   width: 50%;
+ /*   border: 5px solid green; */
+ }
+
+ .Contact {
+   display: flex;
+   justify-content: space-evenly;
+   background-color: #ECEFF1;
+   border-bottom: 1px solid #B0BEC5;
+ /*   border: 2px solid blue; */
+ }
+
+ .Photo {
+   border-radius: 50%;
+   margin: 15px auto 15px auto;
+   border: 0.3vw solid white;
+   width: 20%;
+   height: 20%;
+ }
+
+ .ContactInfo {
+   margin: 15px;
+   width: 60%;
+   height: 80%;
+   margin: auto;
+ }
+
+.ContactName {
+  font-size: 3vw;
+  color: #37474F;
+}
+
+ .Email, .PhoneNumber {
+   font-size: 1.3vw;
+   font-weight: 100;
+   color: #B0BEC5;
+ }

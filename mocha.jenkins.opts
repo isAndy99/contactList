@@ -1,0 +1,3 @@
+--no-colors
+--compilers es6:babel-core/register
+--recursive ./components/**/*.spec.js ./site/**/*.spec.js
