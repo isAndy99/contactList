@@ -17,11 +17,19 @@
  /*   border: 5px solid green; */
  }
 
+ .ContactList ul li {
+  border-bottom: 1px solid #B0BEC5;
+ }
+
+ // Hide border for the last Contact element
+.ContactList ul li:nth-last-child(1) {
+  border: none;
+}
+
  .Contact {
    display: flex;
    justify-content: space-evenly;
    background-color: #ECEFF1;
-   border-bottom: 1px solid #B0BEC5;
  /*   border: 2px solid blue; */
  }
 
