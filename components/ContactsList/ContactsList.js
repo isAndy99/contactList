@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Contact from './components/Contact';
+
 import theme from './theme.scss';
 // theme css module object
 // treats .ContactList as theme.ContactList as a string,
@@ -59,47 +61,6 @@ class ContactList extends React.Component {
 
 ContactList.propTypes = { // this is for later, we'll use the theme import for now.
   theme: PropTypes.object
-};
-
-function Photo({ contact }) {
-  return (
-    <img
-      className={theme.Photo}
-      src={contact.photo}
-      alt={contact.name + ' ' + contact.surname}
-    />
-  );
-}
-
-Photo.propTypes = {
-  contact: PropTypes.object,
-};
-
-function ContactInfo(props) {
-  return (
-    <div className={theme.ContactInfo}>
-      <h1 className={theme.ContactName}>{props.contact.name + ' ' + props.contact.surname}</h1>
-      <div className={theme.Email}>{props.contact.email}</div>
-      <div className={theme.PhoneNumber}>{props.contact.phone}</div>
-    </div>
-  );
-}
-
-ContactInfo.propTypes = {
-  contact: PropTypes.object,
-};
-
-function Contact(props) {
-  return (
-    <div className={theme.Contact}>
-      <Photo contact={props.contact} />
-      <ContactInfo contact={props.contact} />
-    </div>
-  );
-}
-
-Contact.propTypes = {
-  contact: PropTypes.object,
 };
 
 export default ContactList;
