@@ -24,7 +24,7 @@ class ContactList extends React.Component {
         }
       ]
     };
-    this.downloadContacts = this.downloadContacts.bind(this);
+    this.saveContacts = this.saveContacts.bind(this);
   }
 
   fetchPersons() {
@@ -42,7 +42,7 @@ class ContactList extends React.Component {
       });
   }
 
-  downloadContacts() {
+  saveContacts() {
     if(this.state.persons[0].surname || this.state.persons[0].email) {
       localStorage.setItem('contacts', JSON.stringify(this.state.persons));
     } else {
@@ -50,14 +50,25 @@ class ContactList extends React.Component {
     }
   }
 
+  loadContacts() {
+    const localContacts = JSON.parse(localStorage.getItem('contacts'));
+    if(localContacts) {
+      this.setState({
+        persons: localContacts
+      });
+    } else {
+      this.fetchPersons();
+    }
+  }
+
   componentDidMount() {
-    this.fetchPersons();
+    this.loadContacts();
   }
 
   render() {
     return (
       <div className={theme.ContactList}>
-        <LoadSave handleSave={this.downloadContacts} />
+        <LoadSave handleSave={this.saveContacts} />
         <ul>
           {this.state.persons.map((person, index) => (
             <li key={index}>
