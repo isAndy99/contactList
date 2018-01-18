@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Contact from './components/Contact';
 import LoadSave from './components/LoadSave';
+import AddContact from './components/AddContact';
 
 import theme from './theme.scss';
 // theme css module object
@@ -22,9 +23,11 @@ class ContactList extends React.Component {
           email: '',
           photo: 'https://t3.ftcdn.net/jpg/01/87/38/18/240_F_187381803_PkyqnKdHacpV4dXk6jaHGTvtdwqVCclS.jpg'
         }
-      ]
+      ],
+      addContactView: false,
     };
     this.saveContacts = this.saveContacts.bind(this);
+    this.showAddContact = this.showAddContact.bind(this);
   }
 
   fetchPersons() {
@@ -61,6 +64,14 @@ class ContactList extends React.Component {
     }
   }
 
+  showAddContact() {
+    this.setState((prevState) => {
+      return ({
+        addContactView: !prevState.addContactView
+      });
+    });
+  }
+
   componentDidMount() {
     this.loadContacts();
   }
@@ -68,7 +79,8 @@ class ContactList extends React.Component {
   render() {
     return (
       <div className={theme.ContactList}>
-        <LoadSave handleSave={this.saveContacts} />
+        <LoadSave handleSave={this.saveContacts} handleAddContact={this.showAddContact} />
+        {this.state.addContactView && <AddContact />}
         <ul>
           {this.state.persons.map((person, index) => (
             <li key={index}>
