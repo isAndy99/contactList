@@ -8,14 +8,12 @@ function LoadSave(props) {
   return (
     <div className={theme.LoadSave}>
       <button className={theme.Button} onClick={props.handleSave}>Save Contacts</button>
-      <button className={theme.Button} onClick={props.handleLoad}>Load Contacts</button>
     </div>
   );
 }
 
 LoadSave.propTypes = {
-  handleSave: PropTypes.func,
-  handleLoad: PropTypes.func,
+  handleSave: PropTypes.func.isRequired,
 };
 
 export default LoadSave;
