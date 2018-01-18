@@ -44,11 +44,7 @@ class ContactList extends React.Component {
 
   downloadContacts() {
     if(this.state.persons[0].surname || this.state.persons[0].email) {
-      let element = document.createElement("a");
-      const file = new Blob([JSON.stringify(this.state.persons)], {type: 'text/plain'});
-      element.href = URL.createObjectURL(file);
-      element.download = "contacts.txt";
-      element.click();
+      localStorage.setItem('contacts', JSON.stringify(this.state.persons));
     } else {
       alert('Contact list is empty!');
     }
