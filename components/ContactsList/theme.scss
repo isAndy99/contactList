@@ -58,3 +58,28 @@
    font-weight: 100;
    color: #B0BEC5;
  }
+
+
+//  Buttons Styling
+.Button {
+  text-align: center;
+  user-select: none;
+  padding: 0.5em 1em;
+  color: rgba(0, 0, 0, 0.80);
+  border: none rgba(0, 0, 0, 0);
+  background-color: #ECEFF1;
+  border-radius: 2px;
+  margin: 0px 15px 10px 0;
+}
+
+.Button:hover {
+    background-color: #eceff173;
+}
+
+.Button:focus {
+  outline: none;
+}
+
+.Button:active {
+    background-color: #ECEFF1;
+}
