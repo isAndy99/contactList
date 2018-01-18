@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 import theme from '../theme.scss';
 
-function LoadSave(props) {
+function Controls(props) {
 
   return (
-    <div className={theme.LoadSave}>
+    <div className={theme.Controls}>
       <button className={theme.Button} onClick={props.handleAddContact}>Add Contact</button>
       <button className={theme.Button} onClick={props.handleSave}>Save Contacts</button>
     </div>
   );
 }
 
-LoadSave.propTypes = {
+Controls.propTypes = {
   handleSave: PropTypes.func.isRequired,
   handleAddContact: PropTypes.func.isRequired,
 };
 
-export default LoadSave;
+export default Controls;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Contact from './components/Contact';
-import LoadSave from './components/LoadSave';
+import Controls from './components/Controls';
 import AddContact from './components/AddContact';
 
 import theme from './theme.scss';
@@ -79,7 +79,7 @@ class ContactList extends React.Component {
   render() {
     return (
       <div className={theme.ContactList}>
-        <LoadSave handleSave={this.saveContacts} handleAddContact={this.showAddContact} />
+        <Controls handleSave={this.saveContacts} handleAddContact={this.showAddContact} />
         {this.state.addContactView && <AddContact />}
         <ul>
           {this.state.persons.map((person, index) => (
