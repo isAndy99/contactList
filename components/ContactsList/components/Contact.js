@@ -16,7 +16,7 @@ function Contact(props) {
 }
 
 Contact.propTypes = {
-  contact: PropTypes.object,
+  contact: PropTypes.object.isRequired,
 };
 
 export default Contact;

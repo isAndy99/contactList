@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Contact from './components/Contact';
+import LoadSave from './components/LoadSave';
 
 import theme from './theme.scss';
 // theme css module object
@@ -23,9 +24,10 @@ class ContactList extends React.Component {
         }
       ]
     };
+    this.downloadContacts = this.downloadContacts.bind(this);
   }
 
-  getPersons() {
+  fetchPersons() {
     fetch('https://uinames.com/api/?amount=10&ext', {
       method: 'get'
     })
@@ -40,13 +42,26 @@ class ContactList extends React.Component {
       });
   }
 
+  downloadContacts() {
+    if(this.state.persons[0].surname || this.state.persons[0].email) {
+      let element = document.createElement("a");
+      const file = new Blob([JSON.stringify(this.state.persons)], {type: 'text/plain'});
+      element.href = URL.createObjectURL(file);
+      element.download = "contacts.txt";
+      element.click();
+    } else {
+      alert('Contact list is empty!');
+    }
+  }
+
   componentDidMount() {
-    this.getPersons();
+    this.fetchPersons();
   }
 
   render() {
     return (
       <div className={theme.ContactList}>
+        <LoadSave handleSave={this.downloadContacts} />
         <ul>
           {this.state.persons.map((person, index) => (
             <li key={index}>
