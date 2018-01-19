@@ -94,8 +94,8 @@ class AddContact extends React.Component {
 }
 
 AddContact.propTypes = {
-  toggleView: PropTypes.func,
-  newContact: PropTypes.func,
+  toggleView: PropTypes.func.isRequired,
+  newContact: PropTypes.func.isRequired,
 };
 
 export default AddContact;

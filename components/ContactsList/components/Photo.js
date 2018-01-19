@@ -14,7 +14,7 @@ function Photo({ contact }) {
 }
 
 Photo.propTypes = {
-  contact: PropTypes.object,
+  contact: PropTypes.object.isRequired,
 };
 
 export default Photo;
