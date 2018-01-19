@@ -75,6 +75,9 @@ class ContactList extends React.Component {
 
   addNewContact(contact) {
     let contactArr = this.state.persons;
+    if(!contact.photo) {
+      contact.photo = 'https://t3.ftcdn.net/jpg/01/87/38/18/240_F_187381803_PkyqnKdHacpV4dXk6jaHGTvtdwqVCclS.jpg';
+    }
     contactArr.push(contact);
     this.setState({
       persons: contactArr

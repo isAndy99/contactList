@@ -31,8 +31,7 @@ class AddContact extends React.Component {
     if(this.state.name &&
     this.state.surname &&
     this.state.phone &&
-    this.state.email &&
-    this.state.photo) {
+    this.state.email) {
       this.props.newContact(this.state);
       this.props.toggleView();
     } else {
