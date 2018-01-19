@@ -6,6 +6,11 @@ import theme from '../theme.scss';
 class AddContact extends React.Component {
   constructor(props) {
     super(props);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+
   }
 
   render() {
@@ -14,21 +19,36 @@ class AddContact extends React.Component {
         <form>
           <label>
             Name:
-            <input type="text" name="name" />
+            <input
+              type="text"
+              name="name" />
           </label>
           <label>
             Surname:
-            <input type="text" name="surname" />
+            <input
+              type="text"
+              name="surname" />
           </label>
           <label>
             Phone:
-            <input type="text" name="phone" />
+            <input
+              type="tel"
+              name="phone" />
           </label>
           <label>
             Email:
-            <input type="text" name="email" />
+            <input
+              type="email"
+              name="email" />
           </label>
-          <input type="submit" value="Submit" />
+          <label>
+            Photo URL:
+            <input
+              type="url"
+              name="photourl" />
+          </label>
+          <input type="submit"
+            value="Add contact" />
         </form>
       </div>
     );

@@ -61,7 +61,8 @@
 
 
 //  Buttons Styling
-.Button {
+button,
+input[type=submit] {
   text-align: center;
   user-select: none;
   padding: 0.5em 1em;
@@ -72,14 +73,14 @@
   margin: 0px 15px 10px 0;
 }
 
-.Button:hover {
+button:hover {
     background-color: #eceff173;
 }
 
-.Button:focus {
+button:focus {
   outline: none;
 }
 
-.Button:active {
+button:active {
     background-color: #ECEFF1;
 }

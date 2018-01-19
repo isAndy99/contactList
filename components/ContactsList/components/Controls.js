@@ -7,7 +7,7 @@ function Controls(props) {
 
   return (
     <div className={theme.Controls}>
-      <button className={theme.Button} onClick={props.handleAddContact}>Add Contact</button>
+      <button className={theme.Button} onClick={props.handleAddContact}>New Contact</button>
       <button className={theme.Button} onClick={props.handleSave}>Save Contacts</button>
     </div>
   );
