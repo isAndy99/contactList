@@ -54,7 +54,7 @@ class AddContact extends React.Component {
                 onChange={this.handleInputChange} />
             </li>
             <li>
-              <label htmlFor="last-name">Surname</label>
+              <label htmlFor="surname">Surname</label>
               <input type="text"
                 id="surname"
                 value={this.state.surname}
