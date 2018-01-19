@@ -101,7 +101,7 @@ input[type=submit]:hover {
 
 button:focus,
 input[type=submit]:focus {
-outline: none;
+  outline: none;
 }
 
 button:active,
@@ -130,6 +130,7 @@ input[type=submit]:active {
 .formList > li > label {
   max-width: 220px;
   flex: 2;
+  margin-bottom: 1.5vw;
 }
 
 .formList > li > input{
