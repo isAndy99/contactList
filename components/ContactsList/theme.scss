@@ -51,12 +51,17 @@
 .ContactName {
   font-size: 3vw;
   color: #37474F;
+  margin-top: 1vw;
 }
 
  .Email, .PhoneNumber {
    font-size: 1.3vw;
    font-weight: 100;
    color: #B0BEC5;
+ }
+
+ .PhoneNumber {
+   margin-bottom: 1.8vw;
  }
 
  .AddContact>form {
