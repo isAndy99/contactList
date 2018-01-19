@@ -81,7 +81,7 @@ class ContactList extends React.Component {
       <div className={theme.ContactList}>
         <Controls handleSave={this.saveContacts} handleAddContact={this.showAddContact} />
         {this.state.addContactView && <AddContact />}
-        <ul>
+        <ul className={theme.ulContacts}>
           {this.state.persons.map((person, index) => (
             <li key={index}>
               <Contact contact={person}  />

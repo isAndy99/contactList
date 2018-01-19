@@ -17,38 +17,34 @@ class AddContact extends React.Component {
     return (
       <div className={theme.AddContact} >
         <form>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name" />
-          </label>
-          <label>
-            Surname:
-            <input
-              type="text"
-              name="surname" />
-          </label>
-          <label>
-            Phone:
-            <input
-              type="tel"
-              name="phone" />
-          </label>
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email" />
-          </label>
-          <label>
-            Photo URL:
-            <input
-              type="url"
-              name="photourl" />
-          </label>
-          <input type="submit"
-            value="Add contact" />
+          <ul className={theme.formList}>
+            <li>
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" />
+            </li>
+            <li>
+              <label htmlFor="last-name">Surname</label>
+              <input type="text" id="surname" />
+            </li>
+            <li>
+              <label htmlFor="phone">Phone</label>
+              <input type="tel" id="phone" />
+            </li>
+            <li>
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" />
+            </li>
+            <li>
+              <label htmlFor="photo">Photo URL</label>
+              <input type="url" id="photo" />
+            </li>
+            <li>
+              <input type="submit"
+                value="Add contact"
+                id={theme.addContactBtn} />
+            </li>
+          </ul>
+
         </form>
       </div>
     );

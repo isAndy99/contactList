@@ -17,7 +17,7 @@
  /*   border: 5px solid green; */
  }
 
- .ContactList ul li {
+ .ulContacts li {
   border-bottom: 1px solid #B0BEC5;
  }
 
@@ -59,8 +59,23 @@
    color: #B0BEC5;
  }
 
+ .AddContact>form {
+   padding: 1vw 5vw 2vw 5vw;
+ }
 
-//  Buttons Styling
+.AddContact input {
+  border: none;
+  border-bottom: 1px solid #B0BEC5;
+  background-color: #fafafa;
+  padding: 5px;
+  margin-bottom: 10px;
+  height: 2.5vw;
+}
+
+.AddContact input:focus {
+  outline:none;
+}
+
 button,
 input[type=submit] {
   text-align: center;
@@ -70,17 +85,54 @@ input[type=submit] {
   border: none rgba(0, 0, 0, 0);
   background-color: #ECEFF1;
   border-radius: 2px;
-  margin: 0px 15px 10px 0;
+  margin: 0 15px 10px 0;
+  min-height: 32px;
 }
 
-button:hover {
-    background-color: #eceff173;
+button:hover,
+input[type=submit]:hover {
+  background-color: #eceff173;
 }
 
-button:focus {
-  outline: none;
+button:focus,
+input[type=submit]:focus {
+outline: none;
 }
 
-button:active {
-    background-color: #ECEFF1;
+button:active,
+input[type=submit]:active {
+  background-color: #ECEFF1;
 }
+
+
+//--------FORM---------
+
+.formList li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.formList > li > label,
+.formList > li > input[type=text],
+.formList > li > input[type=tel],
+.formList > li > input[type=email],
+.formList > li > input[type=url] {
+  font-size: 1.5em;
+  font-weight: 100;
+}
+
+.formList > li > label {
+  max-width: 220px;
+  flex: 2;
+}
+
+.formList > li > input{
+  flex: 1;
+}
+
+.formList > li > input[type=submit] {
+  margin: 20px 15px 10px 15px;
+}
+
+//--------END FORM---------
