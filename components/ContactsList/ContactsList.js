@@ -27,7 +27,8 @@ class ContactList extends React.Component {
       addContactView: false,
     };
     this.saveContacts = this.saveContacts.bind(this);
-    this.showAddContact = this.showAddContact.bind(this);
+    this.toggleAddContact = this.toggleAddContact.bind(this);
+    this.addNewContact = this.addNewContact.bind(this);
   }
 
   fetchPersons() {
@@ -64,11 +65,19 @@ class ContactList extends React.Component {
     }
   }
 
-  showAddContact() {
+  toggleAddContact() {
     this.setState((prevState) => {
       return ({
         addContactView: !prevState.addContactView
       });
+    });
+  }
+
+  addNewContact(contact) {
+    let contactArr = this.state.persons;
+    contactArr.push(contact);
+    this.setState({
+      persons: contactArr
     });
   }
 
@@ -79,8 +88,8 @@ class ContactList extends React.Component {
   render() {
     return (
       <div className={theme.ContactList}>
-        <Controls handleSave={this.saveContacts} handleAddContact={this.showAddContact} />
-        {this.state.addContactView && <AddContact />}
+        <Controls handleSave={this.saveContacts} handleAddContact={this.toggleAddContact} />
+        {this.state.addContactView && <AddContact toggleView={this.toggleAddContact} newContact={this.addNewContact} />}
         <ul className={theme.ulContacts}>
           {this.state.persons.map((person, index) => (
             <li key={index}>
